@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 import { RandomNumberService } from '../random-number.service';
 
 interface Counter {
@@ -11,7 +11,7 @@ interface Counter {
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit {
 
   @Input() startValue: number;
 
