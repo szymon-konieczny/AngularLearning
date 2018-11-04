@@ -1,8 +1,6 @@
 <app-counter
   *ngFor="let number of numbersArray; let i = index"
-  [index]="i"
   [startValue]="number"
-  (increment)="onArrayUpdate($event)"
-  (decrement)="onArrayUpdate($event)"
-  (reset)="onArrayUpdate($event)"
+  (increase)="onArrayUpdate($event, i)"
+  (decrease)="onArrayUpdate($event, i)"
 ></app-counter>

@@ -14,19 +14,23 @@ export class AppComponent implements OnInit {
 
   numbersArray: number[];
   
-  counterState: number = 0;
-  defaultStep: number;
-
   constructor(private randomNumber: RandomNumberService) {};
 
   ngOnInit() {
     this.numbersArray = this.randomNumber.getRandomNumbersArray(this.startRange, this.endRange, this.arrayLength);
   };
 
-  onArrayUpdate($event) {
-    const index = $event.index;
-    const counterState = $event.counterState;
-    // this.numbersArray[index] = counterState;
+  onArrayUpdate($event, i) {
+    const index = i;
+    const changeValue = $event.changeValue;
+    const actionType = $event.actionType;
+
+    if (actionType === 'increase') {
+      this.numbersArray[index] += changeValue;
+    } else if (actionType === 'decrease') {
+      this.numbersArray[index] -= changeValue;
+    };
+
     console.log(this.numbersArray);
   }
 };
