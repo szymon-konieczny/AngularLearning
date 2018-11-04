@@ -1,10 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RandomNumberService } from './random-number.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'test-project';
-}
+export class AppComponent implements OnInit {
+
+  startRange: number = 1;
+  endRange: number = 44;
+  arrayLength: number = 10;
+
+  numbersArray: number[];
+  
+  counterState: number = 0;
+  defaultStep: number;
+
+  constructor(private randomNumber: RandomNumberService) {};
+
+  ngOnInit() {
+    this.numbersArray = this.randomNumber.getRandomNumbersArray(this.startRange, this.endRange, this.arrayLength);
+  };
+
+  onArrayUpdate($event) {
+    const index = $event.index;
+    const counterState = $event.counterState;
+    // this.numbersArray[index] = counterState;
+    console.log(this.numbersArray);
+  }
+};
