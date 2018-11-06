@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     this.numbersArray = this.randomNumber.getRandomNumbersArray(this.startRange, this.endRange, this.arrayLength);
   };
 
-  onArrayUpdate($event, i) {
+  updateArray($event, i) {
     const index = i;
     const changeValue = $event.changeValue;
     const actionType = $event.actionType;
@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
     } else if (actionType === 'decrease') {
       this.numbersArray[index] -= changeValue;
     };
-
     console.log(this.numbersArray);
   }
 };

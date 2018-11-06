@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class RandomNumberService {
 
-  constructor() { };
-
   getRandomNumber(min, max) {
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     return randomNumber;

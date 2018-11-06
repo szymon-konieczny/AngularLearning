@@ -12,13 +12,13 @@ interface Counter {
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
+  
+  changeValue: number;
 
   @Input() startValue: number;
 
   @Output() increase = new EventEmitter<Counter>();
   @Output() decrease = new EventEmitter<Counter>();
-  
-  changeValue: number;
 
   constructor(private randomNumber: RandomNumberService) {};
 
@@ -26,18 +26,18 @@ export class CounterComponent implements OnInit {
     this.changeValue = this.randomNumber.getRandomNumber(2,15);
   };
 
-  handleIncrease(){
+  onIncrease(){
     this.increase.emit({
       changeValue: this.changeValue,
       actionType: 'increase'
     });
   };
 
-  handleDecrease() {
+  onDecrease() {
     this.increase.emit({
       changeValue: this.changeValue,
       actionType: 'decrease'
     });
   };
 
-}
+};
