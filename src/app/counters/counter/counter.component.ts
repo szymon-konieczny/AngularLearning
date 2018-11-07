@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 interface Counter {
   startingValue?: number,
@@ -17,22 +17,21 @@ export class CounterComponent implements OnInit {
 
   @Input() counterData: Counter;
 
-  @Output() increase = new EventEmitter<Counter>();
-  @Output() decrease = new EventEmitter<Counter>();
+  @Output() counterAction = new EventEmitter<Counter>();
 
   ngOnInit() {
     this.stepValue = this.counterData['stepValue'];
   };
 
   onIncrease(){
-    this.increase.emit({
+    this.counterAction.emit({
       changeValue: this.stepValue,
       actionType: 'increase'
     });
   };
 
   onDecrease() {
-    this.increase.emit({
+    this.counterAction.emit({
       changeValue: this.stepValue,
       actionType: 'decrease'
     });
