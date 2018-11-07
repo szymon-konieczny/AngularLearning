@@ -12,7 +12,7 @@ const appRoutes: Routes = [
   { path: 'wrong-address', component: WrongAddressComponent},
   { path: ':start', component: CountersComponent},
   { path: '**', component: WrongAddressComponent }
-]
+];
 
 @NgModule({
   declarations: [
@@ -29,4 +29,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {};

@@ -30,7 +30,7 @@ export class CountersComponent implements OnInit {
 
   constructor(private randomNumber: RandomNumberService,
               private route: ActivatedRoute,
-              private router: Router) {}
+              private router: Router) {};
 
   ngOnInit() {
 

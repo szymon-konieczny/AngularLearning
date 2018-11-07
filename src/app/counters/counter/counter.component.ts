@@ -37,5 +37,4 @@ export class CounterComponent implements OnInit {
       actionType: 'decrease'
     });
   };
-
 };
