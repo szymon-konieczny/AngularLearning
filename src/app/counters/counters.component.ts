@@ -52,9 +52,9 @@ export class CountersComponent implements OnInit {
   };
 
   updateArray($event, i) {
-    const index = i;
-    const changeValue = $event.changeValue;
-    const actionType = $event.actionType;
+    const index: number = i;
+    const changeValue: number = $event.changeValue;
+    const actionType: string = $event.actionType;
 
     if (actionType === 'increase') {
       this.countersArray[index].startingValue += changeValue;
