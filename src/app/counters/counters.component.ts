@@ -40,7 +40,7 @@ export class CountersComponent implements OnInit {
     const min: number = +this.start;
     const max: number = +this.end;
 
-    if (!max) {
+    if (!min || !max) {
       this.router.navigate(['wrong-address']);
     };
 
