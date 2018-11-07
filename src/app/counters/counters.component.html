@@ -1,0 +1,6 @@
+<app-counter
+  *ngFor="let counter of countersArray; let i = index"
+  [counterData]="counter"
+  (increase)="updateArray($event, i)"
+  (decrease)="updateArray($event, i)"
+></app-counter>

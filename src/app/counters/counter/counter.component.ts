@@ -1,7 +1,7 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
-import { RandomNumberService } from '../random-number.service';
+import { Component, Input, EventEmitter, Output, OnInit, SimpleChanges } from '@angular/core';
 
 interface Counter {
+  startingValue?: number,
   changeValue: number,
   actionType: string
 };
@@ -13,29 +13,27 @@ interface Counter {
 })
 export class CounterComponent implements OnInit {
   
-  changeValue: number;
+  stepValue: number;
 
-  @Input() startValue: number;
+  @Input() counterData: Counter;
 
   @Output() increase = new EventEmitter<Counter>();
   @Output() decrease = new EventEmitter<Counter>();
 
-  constructor(private randomNumber: RandomNumberService) {};
-
   ngOnInit() {
-    this.changeValue = this.randomNumber.getRandomNumber(2,15);
+    this.stepValue = this.counterData['stepValue'];
   };
 
   onIncrease(){
     this.increase.emit({
-      changeValue: this.changeValue,
+      changeValue: this.stepValue,
       actionType: 'increase'
     });
   };
 
   onDecrease() {
     this.increase.emit({
-      changeValue: this.changeValue,
+      changeValue: this.stepValue,
       actionType: 'decrease'
     });
   };

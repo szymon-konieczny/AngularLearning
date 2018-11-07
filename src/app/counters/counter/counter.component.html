@@ -1,0 +1,9 @@
+<div 
+  appHighlight
+  [counterValue]="counterData.startingValue"
+>
+  {{ counterData.startingValue }}
+</div>
+
+<button (click)="onIncrease()">Increase by {{ stepValue }}</button>
+<button (click)="onDecrease()">Decrease by {{ stepValue }}</button>
